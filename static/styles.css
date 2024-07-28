@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+select, button {
+    display: block;
+    margin: 10px auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+#message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}

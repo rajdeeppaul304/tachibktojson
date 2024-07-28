@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Scanlator Preferences</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload File</h1>
+    
+    <input type="file" id="fileInput">
+    <button onclick="uploadBlob()">Upload</button>
+
+
+    <button onclick="processFile()">Parse tachibk File to Json</button>
+    <button onclick="processFile2()">Parse Json File to Tachibk</button>
+
+    <div id="message"></div>
+    <div id="result"></div>
+
+
+
+
+    <h1>Manga Scanlator Preferences</h1>
+
+    <div>
+        <h2>Select Manga</h2>
+        <select id="mangaSelect" onchange="loadScanlators()">
+            <option value="">Select a manga</option>
+            {% for title in manga_titles %}
+                <option value="{{ title }}">{{ title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div id="scanlatorsSection" style="display: none;">
+        <h2>Scanlators</h2>
+        <div id="scanlatorsContainer"></div>
+        <button onclick="updatePreferences()">Update Preferences</button>
+    </div>
+
+
+
+
+    <h1>delete manga</h1>
+    <div>
+        <h2>Select Manga</h2>
+        <select id="mangaSelect2">
+            <option value="">Select a manga</option>
+            {% for title in manga_titles %}
+                <option value="{{ title }}">{{ title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div id="deletionSection" >
+
+        <button id="deletionButton" onclick="deletion_duplicates()">Delete</button>
+
+        <!-- <button onclick="deletion_duplicates()">Update Preferences</button> -->
+    </div>
+    
+    <a href="/download/backup.tachibk">download</a>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
